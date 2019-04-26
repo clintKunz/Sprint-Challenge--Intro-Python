@@ -33,7 +33,6 @@ def cityreader(cities=[]):
     reader = csv.reader(csvfile)
     for row in reader:
       if row[0] != 'city':
-        print(float(row[3]))
         cities.append(City(row[0], float(row[3]), float(row[4])))
 
   return cities
@@ -92,7 +91,6 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # the specified coordinates.
   for city in cities:
     if lat1 < city.lat < lat2 or lat2 < city.lat < lat1 and lon1 < city.lon < lon2 or lon2 < city.lon < lon1:
-      print(f'{city.name}: ({city.lat}, {city.lon})')
       within.append(City(city.name, city.lat, city.lon))
 
   return within
